@@ -1,0 +1,50 @@
+####  JSP 내장 객체
+ : 개발자가 JSP파일 내에 객체를 생성하지 않고, 바로 사용할 수 있는 객체를 "내장객체"라고 합니다. 
+ JSP에서 제공되는 내장객체는 JSP Container에 의해 Servlet 변환될 때에 자동으로 객체가 생성됩니다. 
+ 
+## JSP 내장 객체 종료
+ 1. request( javax.servlet.http.HttpServletRequest )
+ 2. response( javax.servlet.http.HttpServletResponse )
+ 3. out ( javax.servlet.jsp.jspWriter )
+ 4. session ( javax.servlet.http.HttpSession )
+ 5. application (javax.servlet.ServletContext )
+ 6. pageContext (javax.servlet.jsp.PageConext )
+ 7. page (javax.servlet.jsp.HttpJspPage )
+ 8. config (javax.servlet.ServletConfig )
+ 9. exception(java.lang.Throwable )
+
+
+# 1. Request
+ - 웹 브라우저를 통해서 서버에 어떤 정보를 요청하는 것을 Request라고 합니다. 
+ - 이때에 요청 정보가 담기고 관리되는 곳이 request 객체입니다.
+
+ [제공기능]
+  1) 클라이언트(웹브라우저)와 관련된 정보 읽기
+  2) 서버와 관련된 정보 읽기 기능
+  3) 클라이언트가 전송한 요청 파라미터 읽기 기능
+  4) 클라이언트가 전송한 쿠기 읽기 기능
+
+ [request 객체의 주요 메서드]
+ 1. getContextPath() | 반환타입 :String -> 웹 어플리케이션의 컨텍스트 루트의 경로를 얻을 수 있음.
+ 2. getMethod() | 반환타입 :String -> 브라우저가 정보를 전송할 때 사용한 요청 방식을 얻음(GET,POST)
+ 3. getServerName() | 반환타입 : String -> 연결할 때 사용한 서버 이름 전달함.
+ 4. getServerPort() | 반환타입 : int -> 서버가 실행 중인 포트 번호를 얻는다.
+ 5. getRequestURL() | 반환타입 : StringBuffer -> 요청 URL을 얻는다.
+ 6. getRequestURI() | 반환타입 : String -> 요청 URI를 얻는다.
+ 7. getRemoteAddr() | 반환타입 : String -> 웹 서버에 연결한 클라이언트 IP주소를 얻는다.
+ 8. getProtocol() | 반환타입  : String -> 해당 프로토콜을 얻는다.
+ 9. getParameter(name) | 반환타입 :String -> 이름이 name인 파라미터 값을 얻는다. 
+ 						존재하지 않는 경우 null을 반환.
+ 10. getParameterValues(name) | 반환타입 :String[] -> 이름이 name인 모든 파라미터 값들을
+ 						배열로 얻는다. 존재하지 않는 경우 null을 반환.
+
+https://docs.oracle.com/javaee/6/api/javax/servlet/ServletRequest.html
+
+
+
+
+
+
+
+
+

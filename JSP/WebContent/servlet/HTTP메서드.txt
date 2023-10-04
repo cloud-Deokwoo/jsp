@@ -1,0 +1,55 @@
+## HTTP Request
+ : Http는 통신을 위한 데이터를 메시지 형식으로 전달하는 프로토콜. 
+ 
+ [HTTP 구조]
+ HTTP Header : 통신을 위해서 필요한 정보를 담고 있음...
+  request : 요청시 헤더
+    [==헤더 부분 ==]
+    start line  : 메서드 URI HTTP버전   			ex)  GET / HTTP/1.1
+    header
+      request header
+      general header
+      entity header
+      
+  response : 응답시 헤더
+    [==헤더 부분 ==]
+    status line  : HTTP버전 응답코드 comment   	ex)  HTTP/1.1 200 ok
+    header
+      response header
+      general header
+      entity header
+ 
+ HTTP Body : 통신을 통해서 전달하고자하는 데이터를 담고 있음.
+
+## Request의 방식 2가지(대표적) -> GET, POST 
+  참고) GET, POST, PUT, DELETE, OPTIONS
+
+  1. GET 메서드
+   - 서버에 데이터를 요청하는 용도
+   - 전송하는 데이터가 URL에 포함되어 전달됨
+   - 전송했던 데이터는 브라우저 히스토리에 접속했던 주소와 함께 남아 있어 보안성이 취약
+   - 게시판 글 조회나 검색 같은 서버에 정보를 가져올 필요가 있을 때 사용. 
+   - 전송할 수 있는 최대 크기가 브라우저 별로 다르지고, 크기는 정해져 있음.
+     (약 4kbyte)
+   - HTML form 태그를 반드시 사용해야 하는 것은 아님.
+   - Servlet에서는 GET으로 보내면, doGet() 메서드에서 받아 처리함. 
+  
+  2. POST 메서드
+   - 서버에 데이터를 전송하는 용도
+   - 전송된 데이터가 URL에 포함되어 전달되지 않음. 전속 객체의 메시지 바디에 넣어서 전달. 
+   - 브라우저에 전달되는 데이터가 히스토리에 남지 않기 때문에 보안성이 GET보다 좋음.
+   - 비밀번호나 주민번호 같은 민감한(private) 데이터를 서버에 전송할 때 사용함. 
+   - 반드시 HTML FORM 태그를 사용해야 함. 
+   - 데이터 전송을 위한 제한이 없음. 때문에 대량의 데이터를 전송할 수 있음.
+   - Servlet에서는 Post으로 보내면, doPost() 메서드에서 받아 처리함.  
+  
+## GET/POST 방식의 브라우저 한글 처리!!!
+  1. GET방식
+   server.xml 파일을 수정... 
+   <Connector> 태그 속성 중 URIEncoding="utf-8" 을 추가
+  
+  2. POST방식
+   post로 전달받은 데이터에 대한 메서드 추가로 설정
+   request.setCharacterEncoding("utf-8")
+
+
