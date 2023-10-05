@@ -94,6 +94,30 @@ https://docs.oracle.com/javaee/6/api/javax/servlet/ServletRequest.html
   8. getValue()		쿠키 값을 얻기
   9. getVersion()	쿠키 버전 얻기
   
-  
+
+# 4. Session 객체
+ - 세션도 쿠키와 같이 서버와의 과녜를 유지하기 위한 수단
+ - 단, 쿠키와 달리 클라이언트의 특정 위치에 저장되지 않는다. 서버 상에서 객체 형태로 존재.
+ - 서버당 하나의 세션 객체를 가질 수 있음.(브라우저 별 서로 다른 세션을 사용)
+ - 세션 객체는 브라우저 창을 종료하면 삭제
+ - 따라서 세션은 서버에서만 접근이 가능하며 보안이 좋고, 저장할 수 있는 데이터의 한계도 없음.
+ - 세션 클라이언트의 요청이 발생하면 자동 생성되고 고유한 ID값을 클라이언트에게 넘겨주어 이것을 쿠키에 저장함
+ - JSP에서 session이란 내장 객체를 지원하여 세션의 속성을 설정할 수 있음. 
+
+ [세션 메서드 종류]
+ 1. setAttribute()				세션에 데이터를 저장
+ 2. getAttribute()				세션에 저장된 데이터를 얻음
+ 3. getAttributeName()			세션에 저장되어 있는 모든 데이터의 세션 이름(key)를 얻음
+ 4. getId()						자동 생성된 세션의 유니크한 아이디를 얻음
+ 5. getCreationTime()			세션이 생성된 시간을 구함
+ 6. getLastAccessedTime()		웹 브라우저가 가장 마지막에 세션에 접근한 시간을 구함
+ 7. setMaxInactiveInterval()	세션의 유효시간을 설정(단위 "초")
+ 8. getMaxInactiveInterval()	세션의 유효시간을 얻음. 가장 최근 요청시점을 기준으로 카운트
+ 9. removeAttribute()			특정 세션을 삭제
+ 10. invalidate()				모든 세션을 삭제
+ 
+ 
+ 
+ 
   
   
