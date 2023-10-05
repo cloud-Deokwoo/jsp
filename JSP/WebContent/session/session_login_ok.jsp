@@ -10,6 +10,24 @@
 		
 		아이디와 비밀번호가 틀린 경우, 다시 로그인 페이지로 리다이렉트
 	*/
+	request.setCharacterEncoding("utf-8");  //한글 처리
+	
+	String id = request.getParameter("id");
+	String pw = request.getParameter("pw");
+	String nick = request.getParameter("nick");
+
+	//인증...
+	if (id.equals(pw)){
+		//로그인
+		session.setAttribute("user_id", id);
+		session.setAttribute("user_name", nick);
+		response.sendRedirect("session_welcome.jsp");
+	}else{
+		//로그인실패
+		response.sendRedirect("session_login.jsp");
+		
+		//자바스크립트로 구현(6일...여기서부터)
+	}
 
 %>
 <!DOCTYPE html>
