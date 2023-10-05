@@ -41,6 +41,16 @@
 https://docs.oracle.com/javaee/6/api/javax/servlet/ServletRequest.html
 
 
+# 2. Response 객체
+ - 웹 브라우저의 요청에 응답하는 것을 response라고 하고, 응답 정보를 가지고 있는 객체를 의미함.
+
+ [response 관련 메서드]
+ 1. getCharaterEncoding() | 응답할 때 문자 인코딩 형태를 얻어옴. 
+ 2. addCookie() | 쿠키를 저장함
+ 3. sendRedirect(URL) | 지정한 URL로 이동함. 
+
+
+
 
 
 

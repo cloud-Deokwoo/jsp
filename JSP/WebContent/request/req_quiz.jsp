@@ -17,5 +17,11 @@
 		   if를 통해서 BMI지수가 25이상이면 과체중, 18이하라면 저체중, 나머지는 정삭으로 출력 
 		   
 		 --%>
+		<form action="req_quiz_result.jsp" method="post">
+		이름 : <input type="text" size="10" name="name"><br>
+		키 : <input type="text" size="10" name="kie"><br>
+		몸무게 : <input type="text" size="10" name="weight"><br>
+		<input type="submit" value="제출" >
+		</form>
 	</body>
 </html>
