@@ -13,11 +13,19 @@
 
 	String id = request.getParameter("id");
 	String pw = request.getParameter("pw");
+	//아이디를 기억하기 위한 idCheck 값 받기
+	String idCheck = request.getParameter("idCheck");
 	
 	if(id.equals("abc") && pw.equals("1234")){
 		Cookie userid = new Cookie("user_id",id);
 		userid.setMaxAge(30); // 30s
 		response.addCookie(userid);
+		//idCheck가 있는 경우 - 쿠키 생성
+		if(idCheck != null){
+			Cookie check = new Cookie("idCheck", id);
+			check.setMaxAge(1800);
+			response.addCookie(check);
+		}
 		response.sendRedirect("cookie_welcome.jsp");
 	}else{
 		response.sendRedirect("cookie_login.jsp");
