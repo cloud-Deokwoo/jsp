@@ -50,10 +50,14 @@ https://docs.oracle.com/javaee/6/api/javax/servlet/ServletRequest.html
  3. sendRedirect(URL) | 지정한 URL로 이동함. 
 
 
+# 3. out 객체
+ - JSP페이지가 생성하는 모든 내용은 out 기본 객체를 통해서 전송됨
+ - JSP페이지 내에서 사용하는 비스크립트 요소들(HTML코드와 텍스트)이 out객체에 전달됨.
+ - 값을 출력하는 표현식(expression)의 결과값도 out객체에 전달됨
+ - 이런 이유로 표현식으로 대체
 
-
-
-
+### 쿠기와 세션
+ # 쿠키(Cookie)
 
 
 
