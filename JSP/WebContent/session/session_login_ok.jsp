@@ -24,12 +24,51 @@
 		response.sendRedirect("session_welcome.jsp");
 	}else{
 		//로그인실패
-		response.sendRedirect("session_login.jsp");
+		//response.sendRedirect("session_login.jsp");
 		
 		//자바스크립트로 구현(6일...여기서부터)
-	}
-
-%>
+		/*
+		자바스크립트 변수 선언
+		var a = 1;
+		var b = "1";
+		-> 페이지에 영향을 줌...
+		
+		let c = 1;   //es6방식
+		const d = "1";
+		// let은 변수 선언과 같음.
+		// 변수 영역 : {} 내에서 ... 
+		// const 상수 선언과 같음..
+		// 영역 : {} 내에서... 
+		
+		자바스크립트 함수 
+		function 이름(매개변수){
+			
+		}
+		
+		ES6방식의 함수
+		이름 = () => {
+			
+		}
+		
+		제어 : if, switch, for, while, try ... 
+		
+		자바스크립트에서 자주 사용되는 내장객체
+		alert() : 경고창
+		confirm() : 확인창
+		history.go(-1) : 뒤로가기 
+		location.href = "경로" : 리다이렉트
+		
+		*/
+		%>
+	<script>
+		check(); //함수 호출. 자바스크립트는 선언되어 있으면 앞뒤 어든 상관이 없이 사용 가능
+		
+		function check(){
+			alert("로그인에 실패했습니다.");
+			history.go(-1); //뒤로가기 (history객체는 브라우저에 있는 접속 페이지)
+		}
+	</script>		
+	<%}%>
 <!DOCTYPE html>
 <html>
 <head>
