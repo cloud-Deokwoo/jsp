@@ -12,6 +12,7 @@
 	String code = request.getParameter("code");
 	if(auth.equals(code)){
 		//인증 통과
+		session.setAttribute("auth_ok", "ok");
 		response.sendRedirect("reserve.jsp");
 	}else {
 		//인증 통과 X

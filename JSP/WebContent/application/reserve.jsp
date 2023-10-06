@@ -1,11 +1,19 @@
+<%@page import="java.util.ArrayList"%>
+<%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     
 <%
 	//인증 처리 여부 확인
-	
+	if(session.getAttribute("auth_ok")==null){
+		response.sendRedirect("auth.jsp");
+	}
 	//예약현황이 있다면 예약좌석을 꺼낸다...
-
+	List<String> list = new ArrayList<>();
+	if(application.getAttribute("seats")!=null){
+		list = (List<String>)application.getAttribute("seats");
+	}
+	
 %>
     
 <!DOCTYPE html>
@@ -28,7 +36,11 @@
 				<% for(int i=1;i<=6;i++){ %>
 					<%=i %>
 					<% for(char c = 'A'; c<='Z';c++){ %>
-						<input type="checkbox" name="seat" value="<%=c %>-<%=i %>">
+						<%if(list.contains(c+"-"+i)){ %>
+							<input type="checkbox" name="seat" value="<%=c %>-<%=i %>" disabled checked>
+						<%}else{ %>
+							<input type="checkbox" name="seat" value="<%=c %>-<%=i %>">
+						<%} %>
 					<%} %>
 					<br>
 					<% if (i==3){ %>
